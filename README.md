@@ -46,7 +46,7 @@ Solution of exercises from problem sets 1P and 2P, focusing on the main aspects 
 * IP addressing, and  
 * IP routing.
 
-The requirments for [Phase 1](TP2/RC-Enunciado-TP2-1P.pdf) and [Phase 2](TP2/RC-Enunciado-TP2-2P.pdf), and the [report](TP2/RC-TP2-PL82.pdf) can be consulted.
+The requirements for [Phase 1](TP2/RC-Enunciado-TP2-1P.pdf) and [Phase 2](TP2/RC-Enunciado-TP2-2P.pdf), and the [report](TP2/RC-TP2-PL82.pdf) can be consulted.
 
 ## TP3
 Solution of exercises from the assignment, divided into two parts:
