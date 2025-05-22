@@ -1,0 +1,73 @@
+#import "resources/report.typ" as report
+
+#show: report.styling.with(
+    hasFooter: false
+)
+
+#report.index()
+
+= Introdução
+#v(15pt)
+<\<Text here >>
+
+#pagebreak()
+
+= Titulo 1
+== Subtitulo 1
+<\<Text here >>
+
+#figure(
+  image("images/placeholder.png", width: 50%),
+  caption: [Diagrama de Classes],
+)
+
+=== Exemplo de utilização de expressões matemáticas
+$ A = pi r^2 $
+$ "area" = pi dot "radius"^2 $
+$ cal(A) :=
+    { x in RR | x "is natural" } $
+#let x = 5
+$ #x < 17 $
+$ x < y => x gt.eq.not y $
+$ sum_(k=0)^n k
+    &= 1 + ... + n \
+    &= (n(n+1)) / 2 $
+$ frac(a^2, 2) $
+$ vec(1, 2, delim: "[") $
+$ mat(1, 2; 3, 4) $
+$ mat(..#range(1, 5).chunks(2)) $
+$ lim_x =
+    op("lim", limits: #true)_x $
+$ sum_(i in NN) 1 + i $
+
+=== Exemplo de utilização de tabelas
+#table(
+  columns: 2,
+  [*Amount*], [*Ingredient*],
+  [360g], [Baking flour],
+  [250g], [Butter (room temp.)],
+  [150g], [Brown sugar],
+  [100g], [Cane sugar],
+  [100g], [70% cocoa chocolate],
+  [100g], [35-40% cocoa chocolate],
+  [2], [Eggs],
+  [Pinch], [Salt],
+  [Drizzle], [Vanilla extract],
+)
+
+#figure(
+  table(
+  columns: 2,
+    [*Amount*], [*Ingredient*],
+    [360g], [Baking flour],
+    [250g], [Butter (room temp.)],
+    [150g], [Brown sugar],
+    [100g], [Cane sugar],
+    [100g], [70% cocoa chocolate],
+    [100g], [35-40% cocoa chocolate],
+    [2], [Eggs],
+    [Pinch], [Salt],
+    [Drizzle], [Vanilla extract],
+  ),
+  caption: [Diagrama de Classes],
+)
