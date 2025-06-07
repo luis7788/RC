@@ -1,0 +1,1745 @@
+
+node n1 {
+    type router
+    model router
+    network-config {
+	hostname n1
+	!
+	interface eth1
+	 ipv6 address 2001:3::2/64
+	 ip address 10.0.0.13/30
+	!
+	interface eth0
+	 ipv6 address 2001:0::1/64
+	 ip address 10.0.0.10/30
+	!
+    }
+    canvas c1
+    iconcoords {1083.0 477.0}
+    labelcoords {1083.0 509.0}
+    interface-peer {eth0 n3}
+    interface-peer {eth1 n2}
+    services {zebra IPForward}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	!
+	interface eth1
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 10.0.0.14
+	ip route 192.168.0.128 255.255.255.248 10.0.0.14
+	ip route 192.168.0.152 255.255.255.248 10.0.0.9
+	ip route 192.168.0.144 255.255.255.248 10.0.0.9
+	ip route 192.168.0.136 255.255.255.248 10.0.0.9
+	
+	ip route 192.168.0.224 255.255.255.248 10.0.0.14
+	ip route 192.168.0.232 255.255.255.248 10.0.0.14
+	ip route 192.168.0.240 255.255.255.248 10.0.0.14
+	ip route 192.168.0.248 255.255.255.248 10.0.0.14
+	
+	ip route 10.0.0.0 255.255.255.252 10.0.0.9
+	ip route 10.0.0.4 255.255.255.252 10.0.0.9
+	ip route 10.0.0.16 255.255.255.252 10.0.0.9
+	ip route 10.0.0.20 255.255.255.252 10.0.0.14
+	ip route 10.0.0.24 255.255.255.252 10.0.0.14
+	ip route 10.0.0.28 255.255.255.252 10.0.0.14
+	
+	ip route 172.16.143.0 255.255.255.252 10.0.0.14
+	ip route 172.16.143.4 255.255.255.252 10.0.0.14
+	
+	ip route 172.16.142.0 255.255.255.252 10.0.0.9
+	ip route 172.16.142.4 255.255.255.252 10.0.0.9
+	
+	}
+    }
+}
+
+node n2 {
+    type router
+    model router
+    network-config {
+	hostname n2
+	!
+	interface eth2
+	 ipv6 address 2001:15::2/64
+	 ip address 10.0.0.25/30
+	!
+	interface eth0
+	 ipv6 address 2001:2::2/64
+	 ip address 10.0.0.22/30
+	!
+	interface eth1
+	 ipv6 address 2001:3::1/64
+	 ip address 10.0.0.14/30
+	!
+    }
+    canvas c1
+    iconcoords {930.0 550.0}
+    labelcoords {930.0 582.0}
+    interface-peer {eth0 n4}
+    interface-peer {eth1 n1}
+    services {zebra IPForward}
+    interface-peer {eth2 n28}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	!
+	interface eth1
+	!
+	interface eth2
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 10.0.0.26
+	
+	ip route 192.168.0.130 255.255.255.254 10.0.0.25
+	ip route 192.168.0.128 255.255.255.248 10.0.0.13
+	ip route 192.168.0.152 255.255.255.248 10.0.0.21
+	ip route 192.168.0.144 255.255.255.248 10.0.0.21
+	ip route 192.168.0.136 255.255.255.248 10.0.0.21
+	
+	
+	ip route 192.168.0.224 255.255.255.248 10.0.0.26
+	ip route 192.168.0.232 255.255.255.248 10.0.0.26
+	ip route 192.168.0.240 255.255.255.248 10.0.0.26
+	ip route 192.168.0.248 255.255.255.248 10.0.0.26
+	
+	ip route 10.0.0.0 255.255.255.252 10.0.0.13
+	ip route 10.0.0.4 255.255.255.252 10.0.0.21
+	ip route 10.0.0.8 255.255.255.252 10.0.0.13
+	ip route 10.0.0.16 255.255.255.252 10.0.0.13
+	ip route 10.0.0.28 255.255.255.252 10.0.0.26
+	
+	ip route 172.16.143.0 255.255.255.252 10.0.0.26
+	ip route 172.16.143.4 255.255.255.252 10.0.0.26
+	
+	ip route 172.16.142.0 255.255.255.252 10.0.0.13
+	ip route 172.16.142.4 255.255.255.252 10.0.0.21
+	}
+    }
+}
+
+node n3 {
+    type router
+    model router
+    network-config {
+	hostname n3
+	!
+	interface eth1
+	 ipv6 address 2001:1::1/64
+	 ip address 10.0.0.17/30
+	!
+	interface eth2
+	 ipv6 address 2001:14::2/64
+	 ip address 10.0.0.6/30
+	!
+	interface eth0
+	 ipv6 address 2001:0::2/64
+	 ip address 10.0.0.9/30
+	!
+    }
+    canvas c1
+    iconcoords {1237.0 553.0}
+    labelcoords {1237.0 585.0}
+    interface-peer {eth0 n1}
+    interface-peer {eth1 n4}
+    services {zebra IPForward}
+    interface-peer {eth2 n27}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	!
+	interface eth1
+	!
+	interface eth2
+	!
+	exit
+	ip route 172.0.0.0 255.0.0.0 10.0.0.10
+	
+	ip route 192.168.0.152 255.255.255.248 10.0.0.5
+	ip route 192.168.0.144 255.255.255.248 10.0.0.5
+	ip route 192.168.0.136 255.255.255.248 10.0.0.5
+	
+	ip route 192.168.0.224 255.255.255.248 10.0.0.18
+	ip route 192.168.0.232 255.255.255.248 10.0.0.10
+	ip route 192.168.0.240 255.255.255.248 10.0.0.10
+	ip route 192.168.0.248 255.255.255.248 10.0.0.10
+	
+	ip route 10.0.0.0 255.255.255.252 10.0.0.5
+	ip route 10.0.0.12 255.255.255.252 10.0.0.10
+	ip route 10.0.0.20 255.255.255.252 10.0.0.18
+	ip route 10.0.0.24 255.255.255.252 10.0.0.18
+	ip route 10.0.0.28 255.255.255.252 10.0.0.10
+	
+	ip route 172.16.143.0 255.255.255.252 10.0.0.18
+	ip route 172.16.143.4 255.255.255.252 10.0.0.10
+	ip route 172.16.142.0 255.255.255.252 10.0.0.5
+	ip route 172.16.142.4 255.255.255.252 10.0.0.5
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+    }
+}
+
+node n4 {
+    type router
+    model router
+    network-config {
+	hostname n4
+	!
+	interface eth1
+	 ipv6 address 2001:2::1/64
+	 ip address 10.0.0.21/30
+	!
+	interface eth0
+	 ipv6 address 2001:1::2/64
+	 ip address 10.0.0.18/30
+	!
+    }
+    canvas c1
+    iconcoords {1083.0 610.0}
+    labelcoords {1083.0 652.0}
+    interface-peer {eth0 n3}
+    interface-peer {eth1 n2}
+    services {zebra IPForward}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	!
+	interface eth1
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 10.0.0.22
+	ip route 192.168.0.128 255.255.255.248 10.0.0.17
+	ip route 192.168.0.152 255.255.255.248 10.0.0.17
+	ip route 192.168.0.144 255.255.255.248 10.0.0.17
+	ip route 192.168.0.136 255.255.255.248 10.0.0.17
+	
+	ip route 192.168.0.224 255.255.255.248 10.0.0.22
+	ip route 192.168.0.232 255.255.255.248 10.0.0.22
+	ip route 192.168.0.240 255.255.255.248 10.0.0.22
+	ip route 192.168.0.248 255.255.255.248 10.0.0.22
+	
+	ip route 10.0.0.0 255.255.255.252 10.0.0.17
+	ip route 10.0.0.4 255.255.255.252 10.0.0.17
+	ip route 10.0.0.8 255.255.255.252 10.0.0.17
+	ip route 10.0.0.12 255.255.255.252 10.0.0.22
+	ip route 10.0.0.24 255.255.255.252 10.0.0.22
+	ip route 10.0.0.28 255.255.255.252 10.0.0.22
+	
+	ip route 172.16.143.0 255.255.255.252 10.0.0.22
+	ip route 172.16.143.4 255.255.255.252 10.0.0.22
+	ip route 172.16.142.0 255.255.255.252 10.0.0.17
+	ip route 172.16.142.4 255.255.255.252 10.0.0.17
+	
+	
+	
+	
+	
+	
+	}
+    }
+}
+
+node n5 {
+    type router
+    model router
+    network-config {
+	hostname ReiDaNet
+	!
+	interface eth0
+	 ipv6 address 2001:4::1/64
+	 ip address 10.0.0.30/30
+	!
+	interface eth1
+	 ipv6 address 2001:10::1/64
+	 ip address 172.16.143.1/30
+	!
+	interface eth2
+	 ipv6 address 2001:11::1/64
+	 ip address 172.16.143.5/30
+	!
+    }
+    canvas c1
+    iconcoords {601.0 547.0}
+    labelcoords {546.0 559.0}
+    interface-peer {eth1 n7}
+    interface-peer {eth2 n8}
+    interface-peer {eth0 n28}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.0.30/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:4::1/64
+	!
+	interface eth1
+	  ip address 172.16.143.1/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:10::1/64
+	!
+	interface eth2
+	  ip address 172.16.143.5/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:11::1/64
+	!
+	router ospf
+	  router-id 10.0.0.30
+	  network 10.0.0.30/30 area 0
+	  network 172.16.143.1/30 area 0
+	  network 172.16.143.5/30 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 10.0.0.30
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	  interface eth2 area 0.0.0.0
+	!
+	exit
+	ip route 192.168.0.128 255.255.255.248 10.0.0.29
+	ip route 192.168.0.152 255.255.255.248 10.0.0.29
+	ip route 192.168.0.144 255.255.255.248 10.0.0.29
+	ip route 192.168.0.136 255.255.255.248 10.0.0.29
+	
+	ip route 192.168.0.224 255.255.255.248 172.16.143.2
+	ip route 192.168.0.232 255.255.255.248 172.16.143.6
+	ip route 192.168.0.240 255.255.255.248 172.16.143.6
+	ip route 192.168.0.248 255.255.255.248 172.16.143.6
+	
+	ip route 10.0.0.0 255.255.255.252 10.0.0.29
+	ip route 10.0.0.4 255.255.255.252 10.0.0.29
+	ip route 10.0.0.8 255.255.255.252 10.0.0.29
+	ip route 10.0.0.12 255.255.255.252 10.0.0.29
+	ip route 10.0.0.16 255.255.255.252 10.0.0.29
+	ip route 10.0.0.20 255.255.255.252 10.0.0.29
+	ip route 10.0.0.24 255.255.255.252 10.0.0.29
+	ip route 10.0.0.28 255.255.255.252 10.0.0.29
+	
+	ip route 172.16.142.0 255.255.255.252 10.0.0.29
+	ip route 192.142.0.4 255.255.255.252 10.0.0.29
+	
+	
+	
+	}
+    }
+}
+
+node n6 {
+    type router
+    model router
+    network-config {
+	hostname CondadOnline
+	!
+	interface eth2
+	 ipv6 address 2001:7::1/64
+	 ip address 172.16.142.5/30
+	!
+	interface eth1
+	 ipv6 address 2001:6::1/64
+	 ip address 172.16.142.1/30
+	!
+	interface eth0
+	 ipv6 address 2001:5::2/64
+	 ip address 10.0.0.1/30
+	!
+    }
+    canvas c1
+    iconcoords {1510.0 550.0}
+    labelcoords {1582.0 563.0}
+    interface-peer {eth1 n9}
+    interface-peer {eth2 n10}
+    interface-peer {eth0 n27}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.0.1/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:5::2/64
+	!
+	interface eth1
+	  ip address 172.16.142.1/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:6::1/64
+	!
+	interface eth2
+	  ip address 172.16.142.5/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:7::1/64
+	!
+	router ospf
+	  router-id 10.0.0.1
+	  network 10.0.0.1/30 area 0
+	  network 172.16.142.1/30 area 0
+	  network 172.16.142.5/30 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 10.0.0.1
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	  interface eth2 area 0.0.0.0
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 10.0.0.2
+	
+	ip route 192.168.0.128 255.255.255.248 172.16.142.2
+	ip route 192.168.0.152 255.255.255.248 172.16.142.6
+	ip route 192.168.0.144 255.255.255.248 172.16.142.6
+	ip route 192.168.0.136 255.255.255.248 172.16.142.6
+	
+	ip route 192.168.0.224 255.255.255.248 10.0.0.2
+	ip route 192.168.0.232 255.255.255.248 10.0.0.2
+	ip route 192.168.0.240 255.255.255.248 10.0.0.2
+	ip route 192.168.0.248 255.255.255.248 10.0.0.2
+	
+	ip route 10.0.0.4 255.255.255.252 10.0.0.2
+	ip route 10.0.0.8 255.255.255.252 10.0.0.2
+	ip route 10.0.0.12 255.255.255.252 10.0.0.2
+	ip route 10.0.0.16 255.255.255.252 10.0.0.2
+	ip route 10.0.0.20 255.255.255.252 10.0.0.2
+	ip route 10.0.0.24 255.255.255.252 10.0.0.2
+	ip route 10.0.0.28 255.255.255.252 10.0.0.2
+	
+	ip route 172.16.143.0 255.255.255.252 10.0.0.2
+	ip route 172.16.143.4 255.255.255.252 10.0.0.2
+	
+	
+	}
+    }
+    services {OSPFv2 OSPFv3 zebra IPForward}
+}
+
+node n7 {
+    type router
+    model router
+    network-config {
+	hostname RACondado
+	!
+	interface eth1
+	 ipv6 address 2001:12::1/64
+	 ip address 192.168.0.225/29
+	!
+	interface eth0
+	 ipv6 address 2001:10::2/64
+	 ip address 172.16.143.2/30
+	!
+    }
+    canvas c1
+    iconcoords {601.0 430.0}
+    labelcoords {533.0 444.0}
+    interface-peer {eth0 n5}
+    interface-peer {eth1 n11}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 172.16.143.2/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:10::2/64
+	!
+	interface eth1
+	  ip address 192.168.0.225/29
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:12::1/64
+	!
+	router ospf
+	  router-id 172.16.143.2
+	  network 172.16.143.2/30 area 0
+	  network 192.168.0.225/29 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 172.16.143.2
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 172.16.143.1
+	ip route 192.168.0.128 255.255.255.248 172.16.143.1
+	ip route 192.168.0.152 255.255.255.248 172.16.143.1
+	ip route 192.168.0.144 255.255.255.248 172.16.143.1
+	ip route 192.168.0.136 255.255.255.248 172.16.143.1
+	
+	ip route 10.0.0.0 255.255.255.252 172.16.143.1
+	ip route 10.0.0.4 255.255.255.252 172.16.143.1
+	ip route 10.0.0.8 255.255.255.252 172.16.143.1
+	ip route 10.0.0.12 255.255.255.252 172.16.143.1
+	ip route 10.0.0.16 255.255.255.252 172.16.143.1
+	ip route 10.0.0.20 255.255.255.252 172.16.143.1
+	ip route 10.0.0.24 255.255.255.252 172.16.143.1
+	ip route 10.0.0.28 255.255.255.252 172.16.143.1
+	
+	ip route 172.16.142.0 255.255.255.252 172.16.143.1
+	ip route 172.16.142.4 255.255.255.252 172.16.143.1
+	
+	}
+    }
+    services {OSPFv2 OSPFv3 zebra IPForward}
+}
+
+node n8 {
+    type router
+    model router
+    network-config {
+	hostname RAInstitucional
+	!
+	interface eth3
+	 ipv6 address 2001:19::1/64
+	 ip address 192.168.0.241/29
+	!
+	interface eth2
+	 ipv6 address 2001:18::1/64
+	 ip address 192.168.0.233/29
+	!
+	interface eth1
+	 ipv6 address 2001:13::1/64
+	 ip address 192.168.0.249/29
+	!
+	interface eth0
+	 ipv6 address 2001:11::2/64
+	 ip address 172.16.143.6/30
+	!
+    }
+    canvas c1
+    iconcoords {600.0 669.0}
+    labelcoords {513.0 678.0}
+    interface-peer {eth0 n5}
+    interface-peer {eth1 n12}
+    interface-peer {eth2 n31}
+    interface-peer {eth3 n32}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 172.16.143.6/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:11::2/64
+	!
+	interface eth1
+	  ip address 192.168.0.249/29
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:13::1/64
+	!
+	interface eth2
+	  ip address 192.168.0.233/29
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:18::1/64
+	!
+	interface eth3
+	  ip address 192.168.0.241/29
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:19::1/64
+	!
+	router ospf
+	  router-id 172.16.143.6
+	  network 172.16.143.6/30 area 0
+	  network 192.168.0.249/29 area 0
+	  network 192.168.0.233/29 area 0
+	  network 192.168.0.241/29 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 172.16.143.6
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	  interface eth2 area 0.0.0.0
+	  interface eth3 area 0.0.0.0
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 172.16.143.5
+	ip route 192.168.0.128 255.255.255.248 172.16.143.5
+	ip route 192.168.0.152 255.255.255.248 172.16.143.5
+	ip route 192.168.0.144 255.255.255.248 172.16.143.5
+	ip route 192.168.0.136 255.255.255.248 172.16.143.5
+	
+	ip route 192.168.0.224 255.255.255.248 172.16.143.5
+	
+	ip route 10.0.0. 255.255.255.252 172.16.143.5
+	ip route 10.0.0.4 255.255.255.252 172.16.143.5
+	ip route 10.0.0.8 255.255.255.252 172.16.143.5
+	ip route 10.0.0.12 255.255.255.252 172.16.143.5
+	ip route 10.0.0.16 255.255.255.252 172.16.143.5
+	ip route 10.0.0.20 255.255.255.252 172.16.143.5
+	ip route 10.0.0.24 255.255.255.252 172.16.143.5
+	ip route 10.0.0.28 255.255.255.252 172.16.143.5
+	
+	ip route 172.16.142.0 255.255.255.252 172.16.143.5
+	ip route 172.16.142.4 255.255.255.252 172.16.143.5
+	}
+    }
+    services {OSPFv2 OSPFv3 zebra IPForward}
+}
+
+node n9 {
+    type router
+    model router
+    network-config {
+	hostname RAGaliza
+	!
+	interface eth0
+	 ipv6 address 2001:6::2/64
+	 ip address 172.16.142.2/30
+	!
+	interface eth1
+	 ipv6 address 2001:9::1/64
+	 ip address 192.168.0.129/29
+	!
+    }
+    canvas c1
+    iconcoords {1510.0 428.0}
+    labelcoords {1582.0 441.0}
+    interface-peer {eth0 n6}
+    interface-peer {eth1 n13}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 172.16.142.2/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:6::2/64
+	!
+	interface eth1
+	  ip address 192.168.0.193/29
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:9::1/64
+	!
+	router ospf
+	  router-id 172.16.142.2
+	  network 172.16.142.2/30 area 0
+	  network 192.168.0.193/29 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 172.16.142.2
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 172.16.142.1
+	
+	ip route 192.168.0.152 255.255.255.248 172.16.142.1
+	ip route 192.168.0.144 255.255.255.248 172.16.142.1
+	ip route 192.168.0.136 255.255.255.248 172.16.142.1
+	
+	ip route 192.168.0.232 255.255.255.248 172.16.142.1
+	ip route 192.168.0.240 255.255.255.248 172.16.142.1
+	ip route 192.168.0.248 255.255.255.248 172.16.142.1
+	
+	ip route 10.0.0.0 255.255.255.252 172.16.142.1
+	ip route 10.0.0.4 255.255.255.252 172.16.142.1
+	ip route 10.0.0.8 255.255.255.252 172.16.142.1
+	ip route 10.0.0.12 255.255.255.252 172.16.142.1
+	ip route 10.0.0.16 255.255.255.252 172.16.142.1
+	ip route 10.0.0.20 255.255.255.252 172.16.142.1
+	ip route 10.0.0.24 255.255.255.252 172.16.142.1
+	ip route 10.0.0.28 255.255.255.252 172.16.142.1
+	
+	ip route 172.16.143.0 255.255.255.252 172.16.142.1
+	ip route 172.16.143.4 255.255.255.252 172.16.142.1
+	
+	ip route 172.16.142.4 255.255.255.252 172.16.142.1
+	}
+    }
+    services {OSPFv2 OSPFv3 zebra IPForward}
+}
+
+node n10 {
+    type router
+    model router
+    network-config {
+	hostname RACDN
+	!
+	interface eth0
+	 ipv6 address 2001:7::2/64
+	 ip address 172.16.142.6/30
+	!
+	interface eth3
+	 ipv6 address 2001:17::1/64
+	 ip address 192.168.0.137/29
+	!
+	interface eth2
+	 ipv6 address 2001:16::1/64
+	 ip address 192.168.0.145/29
+	!
+	interface eth1
+	 ipv6 address 2001:8::1/64
+	 ip address 192.168.0.153/29
+	!
+    }
+    canvas c1
+    iconcoords {1511.0 677.0}
+    labelcoords {1575.0 680.0}
+    interface-peer {eth0 n6}
+    interface-peer {eth1 n14}
+    interface-peer {eth2 n29}
+    interface-peer {eth3 n30}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 172.16.142.6/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:7::2/64
+	!
+	interface eth1
+	  ip address 192.168.0.201/29
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:8::1/64
+	!
+	interface eth2
+	  ip address 192.168.0.209/29
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:16::1/64
+	!
+	interface eth3
+	  ip address 192.168.0.217/29
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:17::1/64
+	!
+	router ospf
+	  router-id 172.16.142.6
+	  network 172.16.142.6/30 area 0
+	  network 192.168.0.201/29 area 0
+	  network 192.168.0.209/29 area 0
+	  network 192.168.0.217/29 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 172.16.142.6
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	  interface eth2 area 0.0.0.0
+	  interface eth3 area 0.0.0.0
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 172.16.142.5
+	
+	ip route 192.168.0.128 255.255.255.248 172.16.142.5
+	
+	ip route 192.168.0.224 255.255.255.248 172.16.142.5
+	ip route 192.168.0.232 255.255.255.248 172.16.142.5
+	ip route 192.168.0.240 255.255.255.248 172.16.142.5
+	ip route 192.168.0.248 255.255.255.248 172.16.142.5
+	
+	ip route 10.0.0.4 255.255.255.252 172.16.142.5
+	ip route 10.0.0.8 255.255.255.252 172.16.142.5
+	ip route 10.0.0.12 255.255.255.252 172.16.142.5
+	ip route 10.0.0.16 255.255.255.252 172.16.142.5
+	ip route 10.0.0.20 255.255.255.252 172.16.142.5
+	ip route 10.0.0.24 255.255.255.252 172.16.142.5
+	ip route 10.0.0.28 255.255.255.252 172.16.142.5
+	
+	ip route 172.16.143.0 255.255.255.252 172.16.142.5
+	ip route 172.16.143.4 255.255.255.252 172.16.142.5
+	
+	ip route 172.16.142.0 255.255.255.252 172.16.142.5
+	}
+    }
+    services {OSPFv2 OSPFv3 zebra IPForward}
+}
+
+node n11 {
+    type lanswitch
+    network-config {
+	hostname n11
+	!
+    }
+    canvas c1
+    iconcoords {601.0 317.0}
+    labelcoords {601.0 341.0}
+    interface-peer {e0 n7}
+    interface-peer {e1 n15}
+    interface-peer {e2 n16}
+    interface-peer {e3 n23}
+}
+
+node n12 {
+    type lanswitch
+    network-config {
+	hostname n12
+	!
+    }
+    canvas c1
+    iconcoords {743.0 747.0}
+    labelcoords {743.0 771.0}
+    interface-peer {e0 n8}
+    interface-peer {e1 n17}
+    interface-peer {e2 n24}
+    interface-peer {e3 n18}
+}
+
+node n13 {
+    type lanswitch
+    network-config {
+	hostname n13
+	!
+    }
+    canvas c1
+    iconcoords {1510.0 318.0}
+    labelcoords {1510.0 342.0}
+    interface-peer {e0 n9}
+    interface-peer {e1 n26}
+    interface-peer {e2 n19}
+    interface-peer {e3 n20}
+}
+
+node n14 {
+    type lanswitch
+    network-config {
+	hostname n14
+	!
+    }
+    canvas c1
+    iconcoords {1383.0 753.0}
+    labelcoords {1383.0 777.0}
+    interface-peer {e0 n10}
+    interface-peer {e1 n25}
+    interface-peer {e2 n22}
+    interface-peer {e3 n21}
+}
+
+node n15 {
+    type router
+    model PC
+    network-config {
+	hostname AfonsoHenriques
+	!
+	interface eth0
+	 ipv6 address 2001:12::20/64
+	 ip address 192.168.0.226/29
+	!
+    }
+    canvas c1
+    iconcoords {750.0 227.0}
+    labelcoords {747.0 210.0}
+    interface-peer {eth0 n11}
+}
+
+node n16 {
+    type router
+    model PC
+    network-config {
+	hostname EgasMoniz
+	!
+	interface eth0
+	 ipv6 address 2001:12::21/64
+	 ip address 192.168.0.227/29
+	!
+    }
+    canvas c1
+    iconcoords {602.0 192.0}
+    labelcoords {604.0 176.0}
+    interface-peer {eth0 n11}
+}
+
+node n17 {
+    type router
+    model PC
+    network-config {
+	hostname PJ
+	!
+	interface eth0
+	 ipv6 address 2001:13::20/64
+	 ip address 192.168.0.250/29
+	!
+    }
+    canvas c1
+    iconcoords {618.0 947.0}
+    labelcoords {618.0 983.0}
+    interface-peer {eth0 n12}
+    custom-image /usr/local/share/core/icons/normal/host.gif
+}
+
+node n18 {
+    type router
+    model PC
+    network-config {
+	hostname Telepizza
+	!
+	interface eth0
+	 ipv6 address 2001:13::21/64
+	 ip address 192.168.0.251/29
+	!
+    }
+    canvas c1
+    iconcoords {730.0 923.0}
+    labelcoords {729.0 960.0}
+    interface-peer {eth0 n12}
+    custom-image /usr/local/share/core/icons/normal/host.gif
+}
+
+node n19 {
+    type router
+    model PC
+    network-config {
+	hostname Fernao
+	!
+	interface eth0
+	 ipv6 address 2001:9::20/64
+	 ip address 192.168.0.131/29
+	!
+    }
+    canvas c1
+    iconcoords {1656.0 226.0}
+    labelcoords {1658.0 206.0}
+    interface-peer {eth0 n13}
+}
+
+node n20 {
+    type router
+    model PC
+    network-config {
+	hostname Teresa
+	!
+	interface eth0
+	 ipv6 address 2001:9::21/64
+	 ip address 192.168.0.130/29
+	!
+    }
+    canvas c1
+    iconcoords {1511.0 179.0}
+    labelcoords {1563.0 190.0}
+    interface-peer {eth0 n13}
+}
+
+node n21 {
+    type router
+    model PC
+    network-config {
+	hostname CMTV
+	!
+	interface eth0
+	 ipv6 address 2001:8::21/64
+	 ip address 192.168.0.156/29
+	!
+    }
+    canvas c1
+    iconcoords {1504.0 930.0}
+    labelcoords {1504.0 967.0}
+    interface-peer {eth0 n14}
+    custom-image /usr/local/share/core/icons/normal/host.gif
+}
+
+node n22 {
+    type router
+    model host
+    network-config {
+	hostname Reddit
+	!
+	interface eth0
+	 ipv6 address 2001:8::20/64
+	 ip address 192.168.0.155/29
+	!
+    }
+    canvas c1
+    iconcoords {1403.0 922.0}
+    labelcoords {1405.0 957.0}
+    interface-peer {eth0 n14}
+    custom-image /usr/local/share/core/icons/normal/host.gif
+}
+
+node n23 {
+    type router
+    model host
+    network-config {
+	hostname Castelo
+	!
+	interface eth0
+	 ipv6 address 2001:12::10/64
+	 ip address 192.168.0.228/29
+	!
+    }
+    canvas c1
+    iconcoords {467.0 226.0}
+    labelcoords {480.0 208.0}
+    interface-peer {eth0 n11}
+}
+
+node n24 {
+    type router
+    model host
+    network-config {
+	hostname Bombeiros
+	!
+	interface eth0
+	 ipv6 address 2001:13::10/64
+	 ip address 192.168.0.252/29
+	!
+    }
+    canvas c1
+    iconcoords {788.0 848.0}
+    labelcoords {797.0 883.0}
+    interface-peer {eth0 n12}
+}
+
+node n25 {
+    type router
+    model host
+    network-config {
+	hostname Panda
+	!
+	interface eth0
+	 ipv6 address 2001:8::10/64
+	 ip address 192.168.0.154/29
+	!
+    }
+    canvas c1
+    iconcoords {1328.0 854.0}
+    labelcoords {1328.0 886.0}
+    interface-peer {eth0 n14}
+}
+
+node n26 {
+    type router
+    model host
+    network-config {
+	hostname AirFryer
+	!
+	interface eth0
+	 ipv6 address 2001:9::10/64
+	 ip address 192.168.0.132/29
+	!
+    }
+    canvas c1
+    iconcoords {1394.0 222.0}
+    labelcoords {1345.0 236.0}
+    interface-peer {eth0 n13}
+    custom-image /usr/local/share/core/icons/normal/pc.gif
+}
+
+node n27 {
+    type router
+    model router
+    network-config {
+	hostname n6
+	!
+	interface eth1
+	 ipv6 address 2001:14::1/64
+	 ip address 10.0.0.5/30
+	!
+	interface eth0
+	 ipv6 address 2001:5::1/64
+	 ip address 10.0.0.2/30
+	!
+    }
+    canvas c1
+    iconcoords {1365.0 617.0}
+    labelcoords {1365.0 649.0}
+    interface-peer {eth0 n6}
+    interface-peer {eth1 n3}
+    services {zebra IPForward}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	!
+	interface eth1
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 10.0.0.6
+	
+	ip route 192.168.0.128 255.255.255.248 10.0.0.1
+	ip route 192.168.0.152 255.255.255.248 10.0.0.1
+	ip route 192.168.0.144 255.255.255.248 10.0.0.1
+	ip route 192.168.0.136 255.255.255.248 10.0.0.1
+	
+	ip route 192.168.0.224 255.255.255.248 10.0.0.6
+	ip route 192.168.0.232 255.255.255.248 10.0.0.6
+	ip route 192.168.0.240 255.255.255.248 10.0.0.6
+	ip route 192.168.0.248 255.255.255.248 10.0.0.6
+	
+	ip route 10.0.0.8 255.255.255.252 10.0.0.6
+	ip route 10.0.0.12 255.255.255.252 10.0.0.6
+	ip route 10.0.0.16 255.255.255.252 10.0.0.6
+	ip route 10.0.0.20 255.255.255.252 10.0.0.6
+	ip route 10.0.0.24 255.255.255.252 10.0.0.6
+	ip route 10.0.0.28 255.255.255.252 10.0.0.6
+	
+	ip route 172.16.143.0 255.255.255.252 10.0.0.6
+	ip route 172.16.143.4 255.255.255.252 10.0.0.6
+	
+	ip route 172.16.142.0 255.255.255.252 10.0.0.1
+	ip route 172.16.142.4 255.255.255.252 10.0.0.1
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+    }
+}
+
+node n28 {
+    type router
+    model router
+    network-config {
+	hostname n5
+	!
+	interface eth1
+	 ipv6 address 2001:15::1/64
+	 ip address 10.0.0.26/30
+	!
+	interface eth0
+	 ipv6 address 2001:4::2/64
+	 ip address 10.0.0.29/30
+	!
+    }
+    canvas c1
+    iconcoords {772.0 615.0}
+    labelcoords {772.0 647.0}
+    interface-peer {eth0 n5}
+    interface-peer {eth1 n2}
+    services {OSPFv2 OSPFv3 zebra IPForward}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.0.29/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:4::2/64
+	!
+	interface eth1
+	  ip address 10.0.0.26/30
+	  ip ospf network point-to-point
+	  ip ospf hello-interval 2
+	  ip ospf dead-interval 6
+	  ip ospf retransmit-interval 5
+	  ipv6 address 2001:15::1/64
+	!
+	router ospf
+	  router-id 10.0.0.29
+	  network 10.0.0.29/30 area 0
+	  network 10.0.0.26/30 area 0
+	!
+	router ospf6
+	  instance-id 65
+	  router-id 10.0.0.29
+	  interface eth0 area 0.0.0.0
+	  interface eth1 area 0.0.0.0
+	!
+	exit
+	
+	ip route 172.0.0.0 255.0.0.0 10.0.0.30
+	ip route 192.168.0.0 255.255.255.0 10.0.0.30
+	ip route 192.168.0.128 255.255.255.248 10.0.0.25
+	ip route 192.168.0.152 255.255.255.248 10.0.0.25
+	ip route 192.168.0.144 255.255.255.248 10.0.0.25
+	ip route 192.168.0.136 255.255.255.248 10.0.0.25
+	
+	ip route 10.0.0.0 255.255.255.252 10.0.0.25
+	ip route 10.0.0.4 255.255.255.252 10.0.0.25
+	ip route 10.0.0.8 255.255.255.252 10.0.0.25
+	ip route 10.0.0.12 255.255.255.252 10.0.0.25
+	ip route 10.0.0.16 255.255.255.252 10.0.0.25
+	ip route 10.0.0.20 255.255.255.252 10.0.0.25
+	
+	ip route 172.16.142.0 255.255.255.248 10.0.0.25
+	ip route 172.16.143.0 255.255.255.248 10.0.0.30
+	ip route 192.142.0.4 255.255.255.252 10.0.0.25
+	}
+    }
+}
+
+node n29 {
+    type router
+    model PC
+    network-config {
+	hostname Twitch
+	!
+	interface eth0
+	 ipv6 address 2001:16::20/64
+	 ip address 192.168.0.146/29
+	!
+    }
+    canvas c1
+    iconcoords {1561.0 903.0}
+    labelcoords {1562.0 939.0}
+    interface-peer {eth0 n10}
+    custom-image /usr/local/share/core/icons/normal/host.gif
+}
+
+node n30 {
+    type router
+    model PC
+    network-config {
+	hostname CondadoGram
+	!
+	interface eth0
+	 ipv6 address 2001:17::20/64
+	 ip address 192.168.0.138/29
+	!
+    }
+    canvas c1
+    iconcoords {1684.0 811.0}
+    labelcoords {1685.0 846.0}
+    interface-peer {eth0 n10}
+    custom-image /usr/local/share/core/icons/normal/host.gif
+}
+
+node n31 {
+    type router
+    model host
+    network-config {
+	hostname UMinho
+	!
+	interface eth0
+	 ipv6 address 2001:18::10/64
+	 ip address 192.168.0.234/29
+	!
+    }
+    canvas c1
+    iconcoords {402.0 806.0}
+    labelcoords {402.0 842.0}
+    interface-peer {eth0 n8}
+}
+
+node n32 {
+    type router
+    model host
+    network-config {
+	hostname DI
+	!
+	interface eth0
+	 ipv6 address 2001:19::10/64
+	 ip address 192.168.0.242/29
+	!
+    }
+    canvas c1
+    iconcoords {509.0 911.0}
+    labelcoords {509.0 949.0}
+    interface-peer {eth0 n8}
+}
+
+link l1 {
+    nodes {n1 n3}
+    bandwidth 0
+}
+
+link l2 {
+    nodes {n3 n4}
+    bandwidth 0
+}
+
+link l3 {
+    nodes {n4 n2}
+    bandwidth 0
+}
+
+link l4 {
+    nodes {n2 n1}
+    bandwidth 0
+}
+
+link l7 {
+    nodes {n6 n9}
+    bandwidth 0
+}
+
+link l8 {
+    nodes {n6 n10}
+    bandwidth 0
+}
+
+link l9 {
+    nodes {n10 n14}
+    bandwidth 0
+}
+
+link l10 {
+    nodes {n14 n25}
+    bandwidth 0
+}
+
+link l11 {
+    nodes {n14 n22}
+    bandwidth 0
+}
+
+link l12 {
+    nodes {n14 n21}
+    bandwidth 0
+}
+
+link l13 {
+    nodes {n9 n13}
+    bandwidth 0
+}
+
+link l14 {
+    nodes {n13 n26}
+    bandwidth 0
+}
+
+link l15 {
+    nodes {n13 n19}
+    bandwidth 0
+}
+
+link l16 {
+    nodes {n13 n20}
+    bandwidth 0
+}
+
+link l17 {
+    nodes {n5 n7}
+    bandwidth 0
+}
+
+link l18 {
+    nodes {n5 n8}
+    bandwidth 0
+}
+
+link l19 {
+    nodes {n7 n11}
+    bandwidth 0
+}
+
+link l20 {
+    nodes {n11 n15}
+    bandwidth 0
+}
+
+link l21 {
+    nodes {n11 n16}
+    bandwidth 0
+}
+
+link l22 {
+    nodes {n11 n23}
+    bandwidth 0
+}
+
+link l23 {
+    nodes {n8 n12}
+    bandwidth 0
+}
+
+link l24 {
+    nodes {n12 n17}
+    bandwidth 0
+}
+
+link l25 {
+    nodes {n12 n24}
+    bandwidth 0
+}
+
+link l26 {
+    nodes {n12 n18}
+    bandwidth 0
+}
+
+link l6 {
+    nodes {n27 n6}
+    bandwidth 0
+}
+
+link l27 {
+    nodes {n27 n3}
+    bandwidth 0
+}
+
+link l5 {
+    nodes {n5 n28}
+    bandwidth 0
+}
+
+link l28 {
+    nodes {n28 n2}
+    bandwidth 0
+}
+
+link l29 {
+    nodes {n10 n29}
+    bandwidth 0
+}
+
+link l30 {
+    nodes {n10 n30}
+    bandwidth 0
+}
+
+link l31 {
+    nodes {n8 n31}
+    bandwidth 0
+}
+
+link l32 {
+    nodes {n8 n32}
+    bandwidth 0
+}
+
+annotation a1 {
+    iconcoords {376 127 825 427}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #9eb6ff
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a2 {
+    iconcoords {366.0 671.0 832.0 993.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #cfcfa3
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a3 {
+    iconcoords {1268 123 1747 427}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #becfff
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a5 {
+    iconcoords {1276 673 1735 989}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #e0c9a8
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a4 {
+    iconcoords {410.0 107.0}
+    type text
+    label {Condado Portucalense}
+    labelcolor #0000e0
+    fontfamily {Arial}
+    fontsize {26}
+    canvas c1
+}
+
+annotation a6 {
+    type text
+    iconcoords {838.0 110.0}
+    label {}
+    canvas c1
+}
+
+annotation a7 {
+    iconcoords {507.0 1026.0}
+    type text
+    label {Institucional}
+    labelcolor #c1c45c
+    fontfamily {Arial}
+    fontsize {28}
+    canvas c1
+}
+
+annotation a8 {
+    iconcoords {1461.0 94.0}
+    type text
+    label {Galiza}
+    labelcolor #0086be
+    fontfamily {Arial}
+    fontsize {28}
+    canvas c1
+}
+
+annotation a9 {
+    type text
+    iconcoords {1516.0 103.0}
+    label {}
+    canvas c1
+}
+
+annotation a10 {
+    iconcoords {1462.0 1025.0}
+    type text
+    label {CDN}
+    labelcolor #d49300
+    fontfamily {Arial}
+    fontsize {28}
+    canvas c1
+}
+
+annotation a11 {
+    iconcoords {1521.0 1039.0}
+    type text
+    label {}
+    labelcolor #a07100
+    fontfamily {Arial}
+    fontsize {12}
+    canvas c1
+}
+
+annotation a12 {
+    type text
+    iconcoords {1555.0 1058.0}
+    label {}
+    canvas c1
+}
+
+annotation a13 {
+    iconcoords {694 439 1462 705}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #acf99c
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a14 {
+    iconcoords {1033.0 741.0}
+    type text
+    label {Core}
+    labelcolor #00c400
+    fontfamily {Arial}
+    fontsize {28}
+    canvas c1
+}
+
+annotation a15 {
+    type text
+    iconcoords {1060.0 722.0}
+    label {}
+    canvas c1
+}
+
+annotation a16 {
+    type text
+    iconcoords {1070.0 723.0}
+    label {}
+    canvas c1
+}
+
+annotation a17 {
+    type text
+    iconcoords {791.0 500.0}
+    label {}
+    canvas c1
+}
+
+annotation a18 {
+    type text
+    iconcoords {835.0 491.0}
+    label {}
+    canvas c1
+}
+
+canvas c1 {
+    name {Canvas1}
+    refpt {0 0 47.5791667 -122.132322 2.0}
+    scale {150.0}
+    size {2000 1500}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses no
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}
+
+
