@@ -1,58 +1,68 @@
-# RC(Português)
+# 🌐 RC (Português)
 Trabalhos da unidade curricular de Redes de Computadores 2024/2025 da Universidade do Minho
 
-## TP1
+## 🧪 TP1
 Apresentação de um trabalho tendo como base um projeto já existente.
 
-### Fontes
-* [Fonte 1](https://www.caida.org/projects/rabbits/)
-* [Fonte 2](https://www.caida.org/funding/cns-rabbits/cns-rabbits_proposal.pdf)
+### 📚 Fontes
+* 🔗 [Fonte 1](https://www.caida.org/projects/rabbits/)
+* 🔗 [Fonte 2](https://www.caida.org/funding/cns-rabbits/cns-rabbits_proposal.pdf)
 
-É possível consultar a [apresentação](TP1/RC-TP1-Apresentacao-PL82.pdf) e o [enunciado](TP1/RC-Enunciado-TP1.pdf).
+📑 [Apresentação](TP1/RC-TP1-Apresentacao-PL82.pdf)  
+📄 [Enunciado](TP1/RC-Enunciado-TP1.pdf)
 
-## TP2
-Resolução de exercícios presentes nos enunciados 1P e 2P sobre as principais vertentes do Internet Protocol(IP), sendo elas:
-* Formato de um pacote ou datagrama IP,
-* Fragmentação de pacotes IP,
-* Endereçamento IP,
-* Encaminhamento IP.
+## 📦 TP2
+Resolução de exercícios presentes nos enunciados 1P e 2P sobre as principais vertentes do Internet Protocol(IP):
 
-É possível consultar tanto o enunciado da [parte 1](TP2/RC-Enunciado-TP2-1P.pdf) e [parte 2](TP2/RC-Enunciado-TP2-2P.pdf) como o [relatório](TP2/RC-TP2-PL82.pdf).
+* Formato de um pacote ou datagrama IP  
+* Fragmentação de pacotes IP  
+* Endereçamento IP  
+* Encaminhamento IP
 
-## TP3
-Resolução de exercícios presentes no encunciado, sendo eles divididos em 2 partes:
+📄 [Parte 1](TP2/RC-Enunciado-TP2-1P.pdf) | 📄 [Parte 2](TP2/RC-Enunciado-TP2-2P.pdf)  
+📝 [Relatório](TP2/RC-TP2-PL82.pdf)
 
-* **Parte 1:** Exercícios focados na ethernet e em redes locais, além também do protocolo ARP.
-* **Parte 2:** Exercícios focados nas redes sem fios como as redes wi-fi e o também no protocolo IEEE 802.11.
+## 📶 TP3
+Resolução de exercícios presentes no enunciado, divididos em 2 partes:
 
-É possível consultar tanto o [enunciado](TP3/RC-Enunciado-TP3.pdf) como o [relatório](TP3/RC-TP3-PL82.pdf).
+* **Parte 1:** Exercícios focados na Ethernet, redes locais (LANs) e protocolo ARP  
+* **Parte 2:** Exercícios focados em redes sem fios (Wi-Fi) e no protocolo IEEE 802.11
 
-# RC (English)
+📄 [Enunciado](TP3/RC-Enunciado-TP3.pdf)  
+📝 [Relatório](TP3/RC-TP3-PL82.pdf)
+
+---
+
+# 🌐 RC (English)
 Coursework for the Computer Networks (Redes de Computadores) class, academic year 2024/2025, at the University of Minho.
 
-## TP1
+## 🧪 TP1
 Presentation of a project based on an existing work.
 
-### Sources
-* [Source 1](https://www.caida.org/projects/rabbits/)
-* [Source 2](https://www.caida.org/funding/cns-rabbits/cns-rabbits_proposal.pdf)
+### 📚 Sources
+* 🔗 [Source 1](https://www.caida.org/projects/rabbits/)
+* 🔗 [Source 2](https://www.caida.org/funding/cns-rabbits/cns-rabbits_proposal.pdf)
 
-The [requirements](TP1/RC-Enunciado-TP1.pdf) and the [presentation](TP1/RC-TP1-Apresentacao-PL82.pdf) can be consulted.
+📄 [Requirements](TP1/RC-Enunciado-TP1.pdf)  
+📑 [Presentation](TP1/RC-TP1-Apresentacao-PL82.pdf)
 
-## TP2
-Solution of exercises from problem sets 1P and 2P, focusing on the main aspects of the Internet Protocol (IP), such as:
-* The structure of an IP packet or datagram,  
-* IP packet fragmentation,  
-* IP addressing, and  
-* IP routing.
+## 📦 TP2
+Solution of exercises from problem sets 1P and 2P, focusing on key aspects of the Internet Protocol (IP):
 
-The requirements for [Phase 1](TP2/RC-Enunciado-TP2-1P.pdf) and [Phase 2](TP2/RC-Enunciado-TP2-2P.pdf), and the [report](TP2/RC-TP2-PL82.pdf) can be consulted.
+* Structure of an IP packet or datagram  
+* IP packet fragmentation  
+* IP addressing  
+* IP routing
 
-## TP3
+📄 [Phase 1](TP2/RC-Enunciado-TP2-1P.pdf) | 📄 [Phase 2](TP2/RC-Enunciado-TP2-2P.pdf)  
+📝 [Report](TP2/RC-TP2-PL82.pdf)
+
+## 📶 TP3
 Solution of exercises from the assignment, divided into two parts:
 
-* **Part 1:** Exercises exploring Ethernet and local area networks (LANs), as well as the ARP protocol.  
-* **Part 2:** Exercises focusing on wireless networks, such as Wi-Fi, and the IEEE 802.11 protocol.
+* **Part 1:** Exercises focusing on Ethernet, local area networks (LANs), and the ARP protocol  
+* **Part 2:** Exercises on wireless networks (Wi-Fi) and the IEEE 802.11 protocol
 
-The [requirements](TP3/RC-Enunciado-TP3.pdf) and the [report](TP3/RC-TP3-PL82.pdf) can be consulted.
+📄 [Requirements](TP3/RC-Enunciado-TP3.pdf)  
+📝 [Report](TP3/RC-TP3-PL82.pdf)
 
