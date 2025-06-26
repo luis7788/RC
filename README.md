@@ -1,17 +1,17 @@
 # 🌐 RC (Português)
 Trabalhos da unidade curricular de Redes de Computadores 2024/2025 da Universidade do Minho
 
-## 🧪 TP1
+### 🧪 TP1
 Apresentação de um trabalho tendo como base um projeto já existente.
 
-### 📚 Fontes
+#### 📚 Fontes
 * 🔗 [Fonte 1](https://www.caida.org/projects/rabbits/)
 * 🔗 [Fonte 2](https://www.caida.org/funding/cns-rabbits/cns-rabbits_proposal.pdf)
 
 📑 [Apresentação](TP1/RC-TP1-Apresentacao-PL82.pdf)  
 📄 [Enunciado](TP1/RC-Enunciado-TP1.pdf)
 
-## 📦 TP2
+### 📦 TP2
 Resolução de exercícios presentes nos enunciados 1P e 2P sobre as principais vertentes do Internet Protocol(IP):
 
 * Formato de um pacote ou datagrama IP  
@@ -22,7 +22,7 @@ Resolução de exercícios presentes nos enunciados 1P e 2P sobre as principais 
 📄 [Parte 1](TP2/RC-Enunciado-TP2-1P.pdf) | 📄 [Parte 2](TP2/RC-Enunciado-TP2-2P.pdf)  
 📝 [Relatório](TP2/RC-TP2-PL82.pdf)
 
-## 📶 TP3
+### 📶 TP3
 Resolução de exercícios presentes no enunciado, divididos em 2 partes:
 
 * **Parte 1:** Exercícios focados na Ethernet, redes locais (LANs) e protocolo ARP  
@@ -36,17 +36,17 @@ Resolução de exercícios presentes no enunciado, divididos em 2 partes:
 # 🌐 RC (English)
 Coursework for the Computer Networks (Redes de Computadores) class, academic year 2024/2025, at the University of Minho.
 
-## 🧪 TP1
+### 🧪 TP1
 Presentation of a project based on an existing work.
 
-### 📚 Sources
+#### 📚 Sources
 * 🔗 [Source 1](https://www.caida.org/projects/rabbits/)
 * 🔗 [Source 2](https://www.caida.org/funding/cns-rabbits/cns-rabbits_proposal.pdf)
 
 📄 [Requirements](TP1/RC-Enunciado-TP1.pdf)  
 📑 [Presentation](TP1/RC-TP1-Apresentacao-PL82.pdf)
 
-## 📦 TP2
+### 📦 TP2
 Solution of exercises from problem sets 1P and 2P, focusing on key aspects of the Internet Protocol (IP):
 
 * Structure of an IP packet or datagram  
@@ -57,7 +57,7 @@ Solution of exercises from problem sets 1P and 2P, focusing on key aspects of th
 📄 [Phase 1](TP2/RC-Enunciado-TP2-1P.pdf) | 📄 [Phase 2](TP2/RC-Enunciado-TP2-2P.pdf)  
 📝 [Report](TP2/RC-TP2-PL82.pdf)
 
-## 📶 TP3
+### 📶 TP3
 Solution of exercises from the assignment, divided into two parts:
 
 * **Part 1:** Exercises focusing on Ethernet, local area networks (LANs), and the ARP protocol  
